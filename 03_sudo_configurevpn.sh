@@ -6,7 +6,7 @@
 #
 
 mkdir /etc/openvpn/ccd
-echo ifconfig-push 10.8.0.10 255.255.255.255 > /etc/openvpn/ccd/raspiblitz
+echo ifconfig-push 10.8.0.10 10.8.0.9 > /etc/openvpn/ccd/raspiblitz
 cp /tmp/raspiblitz_openvpn/lvpn.key /etc/openvpn/server/
 cp /tmp/raspiblitz_openvpn/lvpn.crt /etc/openvpn/server/
 cp /tmp/raspiblitz_openvpn/ca.crt /etc/openvpn/server/
