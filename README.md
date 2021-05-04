@@ -9,6 +9,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 1. These scripts were developed and tested using a brand new Ubunutu 20.04 Server VPS. 
     1. If you run these scripts on a server that is already configured, there's no telling what you might break.
     2. If you use any other version of Linux, you are in uncharted territory.
+2. These scripts are intended to create a VPN connection for a single Raspiblitz to connect to the Internet without using Tor and without exposing the node with your home IP address. Becasue we map the necessary ports from the VPN to the Raspiblitz, it's really only suitable as a single-purpose VPN unless you are an expert in how to reconfigure for additional uses.
 2. Get your Raspiblitz installed, configured, and confirmed to be working before you try to connect it to a VPN. Otherwise if you have any problems, you will not know if it's the VPN connection or your Raspiblitz configuration.
 3. Recommended hosting providers:
     1. The first time I set up an OpenVPN server, I used a guide published by [Digital Ocean](https://digitalocean.com). I've since developed my own set of scripts and procedures based on what I learned from them and others. Since they helped me and now I'm helping you, it might be cool if you got one of their lowest tier droplets to run your VPN.
@@ -123,5 +124,26 @@ To make sure your VPN connection starts when the Raspiblitz reboots, we need to 
 3. Reconnect to the Raspiblitz over SSH once it restarts. Wait for all of the Raspiblitz services to start then exit from the main menu to a command prompt.
 4. Use `ip address` and `curl https://ifconfig.me ; echo` as you did above to confirm that the VPN is connected
 
+### Step 7: Server Cleanup
+If you leave the CA Key in place on your server, any party that gains access will be able to create their own certificates for your VPN. You want to prevent that. 
+1. Make an offline copy of your server key.
+    1. `cat ~/easy-rsa/pki/private/ca.key` to output the contents of the key.
+    2. Copy the output and save it in a safe place off the server.
+    3. Delete the file once you have a safe copy. `rm ~/easy-rsa/pki/private/ca.key`
+2. If you need to generate any certificates in the future, recreate the CA Key from your offline copy. If you lose it, you will not be able to create additional client certificates for this server - you will need to regenearate all of the server and client certificates.
 
+We also want to get rid of our temporary files just to keep things neat: `sudo rm -r /tmp/raspiblitz_openvpn/`
 
+---
+
+## Administration
+### Port Mapping
+The mapping of ports for Bitcoin (8333) and Lightning (9735) through the VPN is done by 2 lines in the before.rules file:
+
+`-A PREROUTING -i eth0 -p tcp --dport 8333 -j DNAT --to-destination 10.8.0.10`
+
+`-A PREROUTING -i eth0 -p tcp --dport 9735 -j DNAT --to-destination 10.8.0.10`
+
+If you need to map ports for additional services Raspiblitz offers, just edit the rules `sudo nano /etc/ufw/before.rules`. Add a new line with everything identical except the port number after `--dport`.
+
+When you are done, restart UFW to make the change: `sudo service ufw restart`
