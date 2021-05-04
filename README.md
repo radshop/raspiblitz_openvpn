@@ -45,8 +45,7 @@ In this initial release, I have not parameterized the scripts for any local valu
     2. If your public IP address is bound to `eth0`, the you are good to go.
     3. If your public IP is bound to a different interface, then you need to update the UFW before rules:
         1. Edit before.rules: `nano files/before.rules`
-        2. In lines 19, 20, and 23 replace all references to `eth0` with the identifier of your default adapter. Then save the file.
-3. There is no reason to change the vars, but you can ************* TODO: finish this item *******************
+        2. In lines 19, 20, and 23 replace all references to `eth0` with the identifier of your default interface. Then save the file.
 
 ### Step 1: Server Readiness for Generating Certificates and OpenVPN
 This command must be run as sudo:
