@@ -1,7 +1,9 @@
 # raspiblitz_openvpn
 Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway for Raspiblitz and install the client certificate.
 
-
+## Acknowledgments
+1. [Rootzoll](https://github.com/rootzoll) has done the hard part with the [Raspiblitz](https://github.com/rootzoll/raspiblitz) project - this is just a minor addition.
+2. The [Podcast Index](https://podcastindex.org) is enabling Podcasting 2.0 to enable micropayments over the Lightning Network for content creators. They inspired me to get involved in this whole deal.
 
 ## Assumptions, Warnings, Notes, Misc.
 1. These scripts were developed and tested using a brand new Ubunutu 20.04 Server VPS. 
@@ -17,7 +19,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 5. The most reliable way to connect from a home-based Raspberry Pi to the hostd VPNis with UDP port 1194 - that's the standard port.
     1. If you know what you are doing and want to change that configuration, it's not a big deal.
     2. It's exceedingly rare for home or business ISPs to block UDP port 1194 - if they did, no one would be able to work from home over a VPN on that port. If you are having trouble with connectivity, don't assume that's the cause unless you check with your ISP first.
-6. I have tested these scripts and this procedure multiple times, and it definitely works flawlessly for me on my VPS provider and my Raspiblitz on my home network. If it doesn't work for you, I have limited resources to help you, but I'll try.
+6. This is a "quick & dirty" way for me to get the scripts and procedure out to anyone who can benefit. I haven't tried to address all the ways this could be optimized. I have tested these scripts and this procedure multiple times, and it definitely works flawlessly for me on my VPS provider and my Raspiblitz on my home network. If it doesn't work for you, I have limited resources to help you, but I'll try.
 
 ---
 
