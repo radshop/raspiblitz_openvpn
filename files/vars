@@ -1,0 +1,8 @@
+set_var EASYRSA_REQ_COUNTRY    "US"
+set_var EASYRSA_REQ_PROVINCE   "CA"
+set_var EASYRSA_REQ_CITY       "LA"
+set_var EASYRSA_REQ_ORG        "Anonymous"
+set_var EASYRSA_REQ_EMAIL      "admin@maybe.not"
+set_var EASYRSA_REQ_OU         "BTC"
+set_var EASYRSA_ALGO           "ec"
+set_var EASYRSA_DIGEST         "sha512"
