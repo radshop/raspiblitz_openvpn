@@ -24,12 +24,12 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 ## Installation Procedure
 ### Step 0: Preliminary Server Setup
 #### Step 0.a Basics
-1. Starting with a plain-vanilla Ubuntu 20.04 LTS Server VPS, complete the following before you are ready to run the scripts. (Instructions for these are not in the scope of this document - Digital Ocean, Linode, and others have great guides.)
-    2. Create a new user account (not root) and add that user to the sudoers. All commands run in this procedure should be run with that user account, not root.
-    3. Add your SSH public key to the new user account so you can connect without a password.
-    4. I recommend that you disable root login and password login so that only valid non-root SSH access is possible. That's the best way to secure your server.
-    5. If your setup instructions include configuring the UFW firewall, I recommend that you enable port 22 (SSH) only at this point. The setup scripts include UFW configuration, so the less you do in advance the better to avoid any conflicts.
-    1. Setting the hostname and timezone are good practices, but not essential. 
+1. Starting with a plain-vanilla Ubuntu 20.04 LTS Server VPS, complete the following before you are ready to run the scripts. (Instructions for these are not in the scope of this document - Digital Ocean, Linode, and others have great guides.) 
+    1. Create a new user account (not root) and add that user to the sudoers. All commands run in this procedure should be run with that user account, not root.
+    2. Add your SSH public key to the new user account so you can connect without a password.
+    3. I recommend that you disable root login and password login so that only valid non-root SSH access is possible. That's the best way to secure your server.
+    4. If your setup instructions include configuring the UFW firewall, I recommend that you enable port 22 (SSH) only at this point. The setup scripts include UFW configuration, so the less you do in advance the better to avoid any conflicts.
+    5. Setting the hostname and timezone are good practices, but not essential. 
         1. If you want the hostname to match the certificate name we are generating (which doesn't matter in practice but can avoid confusion for you), you can execute `sudo hostnamectl set-hostname lvpn`. The new hostname will show next time you log in.
 2. Clone this git repository locally. It doesn't matter which method you use:
     1. If your SSH private key is on the server and the corresponding public key is added to your Github account: `git clone git@github.com:radshop/raspiblitz_openvpn.git`
