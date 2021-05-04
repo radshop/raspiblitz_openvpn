@@ -19,7 +19,7 @@ cp ta.key ~/client-configs/keys/
 popd
 
 touch ~/client-configs/files/raspiblitz.ovpn
-cat ~/client-configs/base.conf >> ~/client-configs/files/raspiblitz.ovpn
+cat ~/client-configs/base.conf > ~/client-configs/files/raspiblitz.ovpn
 echo -e '<ca>' >> ~/client-configs/files/raspiblitz.ovpn
 cat ~/client-configs/keys/ca.crt >> ~/client-configs/files/raspiblitz.ovpn
 echo -e '</ca>\n<cert>' >> ~/client-configs/files/raspiblitz.ovpn
@@ -29,6 +29,3 @@ cat ~/client-configs/keys/raspiblitz.key >> ~/client-configs/files/raspiblitz.ov
 echo -e '</key>\n<tls-crypt>' >> ~/client-configs/files/raspiblitz.ovpn
 cat ~/client-configs/keys/ta.key >> ~/client-configs/files/raspiblitz.ovpn
 echo -e '</tls-crypt>' >> ~/client-configs/files/raspiblitz.ovpn
-
-cat ~/client-configs/files/raspiblitz.ovpn
-
