@@ -9,7 +9,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 1. These scripts were developed and tested using a brand new Ubunutu 20.04 Server VPS. 
     1. If you run these scripts on a server that is already configured, there's no telling what you might break.
     2. If you use any other version of Linux, you are in uncharted territory.
-2. These scripts are intended to create a VPN connection for a single Raspiblitz to connect to the Internet without using Tor and without exposing the node with your home IP address. Becasue we map the necessary ports from the VPN to the Raspiblitz, it's really only suitable as a single-purpose VPN unless you are an expert in how to reconfigure for additional uses.
+2. These scripts are intended to create a VPN connection for a single Raspiblitz to connect to the Internet without using Tor and without exposing the node with your home IP address. Because we map the necessary ports from the VPN to the Raspiblitz, it's really only suitable as a single-purpose VPN unless you are an expert in how to reconfigure for additional uses.
 2. Get your Raspiblitz installed, configured, and confirmed to be working before you try to connect it to a VPN. Otherwise if you have any problems, you will not know if it's the VPN connection or your Raspiblitz configuration.
 3. Recommended hosting providers:
     1. The first time I set up an OpenVPN server, I used a guide published by [Digital Ocean](https://digitalocean.com). I've since developed my own set of scripts and procedures based on what I learned from them and others. Since they helped me and now I'm helping you, it might be cool if you got one of their lowest tier droplets to run your VPN.
@@ -17,7 +17,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
     3. And there are many others to choose from. Just make sure you are a getting a plain-vanilla Ubuntu 20.04 LTS server, nothing preconfigured. Otherwise these scripts might not work.
 4. This project creates the CA (certificate authority) key on the same server where we will be running our VPN. Normally this is not considered a good security practice. The reason it's okay in this case is that we are setting up this VPN to have only 1 client - Raspiblitz. So once we've generated that client certificate, we make an offline backup of the CA key and delete it from the server.
     1. If you want to create certificates for multiple clients to use your VPN, you should not use these scripts - set up a standalone CA server. Instructions for how to do that are outside the scope of this project.
-5. The most reliable way to connect from a home-based Raspberry Pi to the hostd VPNis with UDP port 1194 - that's the standard port.
+5. The most reliable way to connect from a home-based Raspberry Pi to the hosted VPN is with UDP port 1194 - that's the standard port.
     1. If you know what you are doing and want to change that configuration, it's not a big deal.
     2. It's exceedingly rare for home or business ISPs to block UDP port 1194 - if they did, no one would be able to work from home over a VPN on that port. If you are having trouble with connectivity, don't assume that's the cause unless you check with your ISP first.
 6. This is a "quick & dirty" way for me to get the scripts and procedure out to anyone who can benefit. I haven't tried to address all the ways this could be optimized. I have tested these scripts and this procedure multiple times, and it definitely works flawlessly for me on my VPS provider and my Raspiblitz on my home network. If it doesn't work for you, I have limited resources to help you, but I'll try.
@@ -41,7 +41,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 #### Step 0.b Setting Configuration Parameters
 In this initial release, I have not parameterized the scripts for any local values. I may do that in a later release, but for now you just need to make a couple simple changes to the files for your unique environment.
 1. Add your IP address to the base configuration. For this you will need the public IP address of your server (provided by your hosting service).
-    1. Edit base.conf (I use vim, but nano is more comfortable for beginners): `nano files/base.conf`
+    1. Edit base.conf (I use vim, but nano is more comfortable for many, especially beginners): `nano files/base.conf`
     2. On line 2, replace the word `my-server` with the IP address of your server and save the file.
 2. We need to confirm that your default network interface is `eth0`, which should almost always be the case for a hosted VPS.
     1. Run the command `ip address`, which will list the network interfaces and their IP addresses. You are looking for the IPv4 address, which will be preceded by the word `inet`.
