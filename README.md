@@ -91,13 +91,13 @@ Less experienced users might find it surprisingly difficult to move the file usi
 In any case, the destiantion for the file is /home/admin/raspiblitz.ovpn
 
 1. If your terminal supports right-click to copy/paste, then that's great. If not, you need to find out what key sequence (eg. CTRL-SHIFT-C/CTRL-SHIFT-V or CTRL-INSERT/SHIFT-INSERT or something else). You need to know that before you can proceed.
-2. On the VPN server, output the certificate cleanly to the terminal with `clear && cat ~/client-configs/files/raspiblitz.ovpn`. The select and copy the entire certificate. You must get the whole thing. If scrolling to select for copying is not supported or is difficult on your terminal, you can use `less ~/client-configs/files/raspiblitz.ovpn` and copy it in sections - just be really sure not to miss or duplicate any line.
-3. It can be helpful to pastte into a desktop text editor and review the contents to make sure everything is right. Or you can go straight to your Raspiblitz.
+2. On the VPN server, output the certificate cleanly to the terminal with `clear && cat ~/client-configs/files/raspiblitz.ovpn`. Then select and copy the entire certificate. You must get the whole thing. If scrolling to select for copying is not supported or is difficult on your terminal, you can use `less ~/client-configs/files/raspiblitz.ovpn` and copy it in sections - just be really sure not to miss or duplicate any line.
+3. It can be helpful to paste into a desktop text editor and review the contents to make sure everything is right. Or you can go straight to your Raspiblitz.
 4. On the Raspiblitz, over ssh as the admin user, use vim or nano to create the empty file: `nano ~/raspiblitz.ovpn`
 5. Paste all of the certificate into that file and save.
 
 ### Step 6: Configure the VPN on Raspiblitz
-There is no packages script for this part - it's a series of individual steps. All these should be run on your Raspiblitz logged in via SSH as the admin user.
+There is no packaged script for this part - it's a series of individual steps. All these should be run on your Raspiblitz logged in via SSH as the admin user.
 
 First install OpenVPN on the Raspiblitz: `sudo apt install openvpn`.
 
@@ -114,7 +114,7 @@ Start the VPN interactively by running `sudo openvpn --config raspiblitz.ovpn`.
 Start the the VPN as a background daemon by running `sudo openvpn --config raspiblitz.ovpn --daemon`.
 
 1. Enter `ip address` and confirm that the new `tun0` interface is present with IP address 10.8.0.10.
-2. Use an external service to confirm your publid IP address: `curl https://ifconfig.me ; echo`. The result should show the IP of your VPN server.
+2. Use an external service to confirm your public IP address: `curl https://ifconfig.me ; echo`. The result should show the IP of your VPN server.
 
 #### Set VPN to Start on Boot
 To make sure your VPN connection starts when the Raspiblitz reboots, we need to copy your certificate to the OpenVPN directory and change the extension to .conf.
