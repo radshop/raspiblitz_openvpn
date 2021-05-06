@@ -9,7 +9,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 1. These scripts were developed and tested using a brand new Ubunutu 20.04 Server VPS. 
     1. If you run these scripts on a server that is already configured, there's no telling what you might break.
     2. If you use any other version of Linux, you are in uncharted territory.
-2. These scripts are intended to create a VPN connection for a single Raspiblitz to connect to the Internet without using Tor and without exposing the node with your home IP address. Because we map the necessary ports from the VPN to the Raspiblitz, it's really only suitable as a single-purpose VPN unless you are an expert in how to reconfigure for additional uses.
+2. These scripts are intended to create a VPN connection for a single Raspiblitz to connect to the Internet without using Tor and without exposing your home IP address. Because we map the necessary ports from the VPN to the Raspiblitz, it's really only suitable as a single-purpose VPN unless you are an expert in how to reconfigure for additional uses.
 2. Get your Raspiblitz installed, configured, and confirmed to be working before you try to connect it to a VPN. Otherwise if you have any problems, you will not know if it's the VPN connection or your Raspiblitz configuration.
 3. Recommended hosting providers:
     1. The first time I set up an OpenVPN server, I used a guide published by [Digital Ocean](https://digitalocean.com). I've since developed my own set of scripts and procedures based on what I learned from them and others. Since they helped me and now I'm helping you, it might be cool if you got one of their lowest tier droplets to run your VPN.
