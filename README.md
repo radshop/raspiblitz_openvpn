@@ -3,7 +3,7 @@ Scripts to install and configure a clean Ubuntu 20.04 VPS as an OpenVPN gateway 
 
 ## Acknowledgments
 1. [Rootzoll](https://github.com/rootzoll) has done the hard part with the [Raspiblitz](https://github.com/rootzoll/raspiblitz) project - this is just a minor addition.
-2. The [Podcast Index](https://podcastindex.org) is enabling Podcasting 2.0 to enable micropayments over the Lightning Network for content creators. They inspired me to get involved in this whole deal.
+2. The [Podcast Index](https://podcastindex.org) is enabling Podcasting 2.0 to send micropayments over the Lightning Network for content creators. They inspired me to get involved in this whole deal.
 
 ## Assumptions, Warnings, Notes, Misc.
 1. These scripts were developed and tested using a brand new Ubunutu 20.04 Server VPS. 
