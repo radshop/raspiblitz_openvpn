@@ -88,7 +88,7 @@ The client certificate is generated on the server at ` ~/client-configs/files/ra
 
 Less experienced users might find it surprisingly difficult to move the file using terminal command line utilities. If you know how to use `scp` or the Putty PSFTP, then you can copy the file that way. But one of the most straightforward ways is to just use text copy/paste as follows. It requires having SSH connections to both the VPN server and the Raspiblitz server. (I don't use an LCD on my Raspiblitz, just SSH. I don't know if there's a way to do this without SSH, but I doubt it.)
 
-In any case, the destiantion for the file is /home/admin/raspiblitz.ovpn
+In any case, the destination for the file is /home/admin/raspiblitz.ovpn
 
 1. If your terminal supports right-click to copy/paste, then that's great. If not, you need to find out what key sequence (eg. CTRL-SHIFT-C/CTRL-SHIFT-V or CTRL-INSERT/SHIFT-INSERT or something else). You need to know that before you can proceed.
 2. On the VPN server, output the certificate cleanly to the terminal with `clear && cat ~/client-configs/files/raspiblitz.ovpn`. Then select and copy the entire certificate. You must get the whole thing. If scrolling to select for copying is not supported or is difficult on your terminal, you can use `less ~/client-configs/files/raspiblitz.ovpn` and copy it in sections - just be really sure not to miss or duplicate any line.
